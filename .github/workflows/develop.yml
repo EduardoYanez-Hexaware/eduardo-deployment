@@ -23,3 +23,17 @@ jobs:
 
       - name: Test coverage
         run: npm run test
+
+  deploy-to-QA:
+    name: "Deploy"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: jsmrcaga/action-netlify-deploy@main
+        with:
+          build_command: npm run build
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+  # pull-request:
