@@ -15,7 +15,7 @@ function App() {
         >
           Learn React
         </a>
-        <h1>2</h1>
+        <h1>3</h1>
         <a
           className="troll"
           href="https://youtu.be/dQw4w9WgXcQ"
