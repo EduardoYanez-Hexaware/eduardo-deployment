@@ -27,6 +27,7 @@ jobs:
   deploy-to-QA:
     name: "Deploy"
     runs-on: ubuntu-latest
+    environment: Netlify
 
     steps:
       - uses: actions/checkout@v1
