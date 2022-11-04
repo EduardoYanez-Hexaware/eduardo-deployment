@@ -67,10 +67,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - name: Create PR
         with:
           fetch-depth: 0
+
+      - name: Create PR
         run: gh pr create --fill --body "Auto Pull Request Try"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
