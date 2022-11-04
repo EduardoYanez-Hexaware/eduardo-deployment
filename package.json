@@ -27,8 +27,7 @@
     "prepare": "husky install",
     "setHomePage": "node ./scripts/update_homepage.js",
     "netlifyProd": "netlify deploy --prod",
-    "changeNameQA": "node ./scripts/changeName_QA.js",
-    "pullRequest": "gh pr create --fill"
+    "changeNameQA": "node ./scripts/changeName_QA.js"
   },
   "eslintConfig": {
     "extends": [

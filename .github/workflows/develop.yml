@@ -8,6 +8,7 @@ on:
 
 jobs:
   test-code:
+    name: "Test Code"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,7 +27,7 @@ jobs:
 
   deploy-to-QA:
     needs: test-code
-    name: "Deploy"
+    name: "Deploy to QA"
     runs-on: ubuntu-latest
     environment:
       name: Netlify
@@ -61,14 +62,11 @@ jobs:
 
   pull-request:
     needs: deploy-to-QA
-    name: "PR"
+    name: "Pull request"
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-
       - name: Create PR
-        run: npm run pullRequest
+        run: gh pr create --fill
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
