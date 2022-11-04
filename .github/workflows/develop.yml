@@ -40,6 +40,9 @@ jobs:
       - name: Set homepage
         run: npm run setHomePage
 
+      - name: Change name QA env
+        run: npm run changeNameQA
+
       - name: Install dependencies
         run: npm install
 

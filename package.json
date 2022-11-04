@@ -26,7 +26,8 @@
     "lint": "eslint --cache . --ext ts,tsx",
     "prepare": "husky install",
     "setHomePage": "node ./scripts/update_homepage.js",
-    "netlifyProd": "netlify deploy --prod"
+    "netlifyProd": "netlify deploy --prod",
+    "changeNameQA": "node ./scripts/changeName_QA.js"
   },
   "eslintConfig": {
     "extends": [
