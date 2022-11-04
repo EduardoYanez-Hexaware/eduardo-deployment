@@ -11,6 +11,7 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "netlify-cli": "^12.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -24,7 +25,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint --cache . --ext ts,tsx",
     "prepare": "husky install",
-    "setHomePage": "node ./scripts/update_homepage.js"
+    "setHomePage": "node ./scripts/update_homepage.js",
+    "netlifyProd": "netlify deploy --prod",
+    "changeNameQA": "node ./scripts/changeName_QA.js"
   },
   "eslintConfig": {
     "extends": [
