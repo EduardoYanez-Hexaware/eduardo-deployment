@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Eduardo Yañez Mejía</p>
+        <p>Eduardo Yañez Mejía --update</p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -22,7 +22,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Do not click here!
+          <h1>Do not click here!</h1>
         </a>
       </header>
     </div>
