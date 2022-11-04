@@ -16,6 +16,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>This must fail</p>
       </header>
     </div>
   );
