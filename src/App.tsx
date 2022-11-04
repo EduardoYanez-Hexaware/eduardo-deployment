@@ -16,7 +16,14 @@ function App() {
         >
           Learn React
         </a>
-        <p>This must fail</p>
+        <a
+          className="troll"
+          href="https://youtu.be/dQw4w9WgXcQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Do not click here!
+        </a>
       </header>
     </div>
   );
