@@ -59,4 +59,16 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_DEPLOY_TO_PROD: true
 
-  # pull-request:
+  pull-request:
+    needs: deploy-to-QA
+    name: "PR"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Create PR
+        run: npm run pullRequest
