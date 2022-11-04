@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: jsmrcaga/action-netlify-deploy@main
+      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
         with:
           build_command: npm run build
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
