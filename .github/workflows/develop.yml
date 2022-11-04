@@ -8,6 +8,7 @@ on:
 
 jobs:
   test-code:
+    name: "Test Code"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -26,7 +27,7 @@ jobs:
 
   deploy-to-QA:
     needs: test-code
-    name: "Deploy"
+    name: "Deploy to QA"
     runs-on: ubuntu-latest
     environment:
       name: Netlify
@@ -59,4 +60,17 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_DEPLOY_TO_PROD: true
 
-  # pull-request:
+  pull-request:
+    needs: deploy-to-QA
+    name: "Pull request"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Create PR
+        run: gh pr create --fill --body "Auto Pull Request Try"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
