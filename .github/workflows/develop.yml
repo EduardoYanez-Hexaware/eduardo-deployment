@@ -25,15 +25,30 @@ jobs:
         run: npm run test
 
   deploy-to-QA:
+    needs: test-code
     name: "Deploy"
     runs-on: ubuntu-latest
     environment: Netlify
 
     steps:
       - uses: actions/checkout@v1
-      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          build_command: npm run build
+          node-version: "16"
+
+      -name: Install dependencies
+        run: npm install
+      
+      - name: Build
+        run: CI=false npm run build
+
+      - name: Run test
+        run: npm run test
+
+      - name: Upload to Netlify
+        uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
